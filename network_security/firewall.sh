@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# Update the package repository
+# Install the necessary packages
 apt update
+apt install -y ufw
 
-# Install available security updates
-apt upgrade -y --security
+# Allow SSH connections
+ufw allow ssh
+
+# Enable the firewall
+ufw enable
