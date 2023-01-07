@@ -33,3 +33,17 @@ Finally, it removes the temporary report file.
 This script can be used to regularly audit the filesystem and alert the administrator of any changes or potential security breaches.
 
 Note: The above script uses the mail command to send email. This command may not be available on all systems. An alternative option is to use the sendmail command or a third-party email client, such as mutt, to send email.
+
+Lynis_filesystem_scan.sh
+
+This script first checks if the lynis package is installed. If it is not, it exits with an error message.
+
+It then runs Lynis and generates a report using the lynis audit system --report-file /tmp/lynis_report.txt command. It saves the report to a temporary file /tmp/lynis_report.txt.
+
+It then checks if the report contains any warnings or errors by looking for specific strings in the report. If it finds any warnings or errors, it prints the report and sends an email alert with the report attached to the administrator.
+
+Finally, it removes the temporary report file.
+
+This script can be used to regularly run a vulnerability scanner and alert the administrator of any potential security weaknesses in the system.
+
+Note: The above script uses the mail command to send email. This command may not be available on all systems. An alternative option is to use the sendmail command or a third-party email client, such as mutt, to send email.
